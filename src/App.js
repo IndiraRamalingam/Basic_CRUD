@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import ReadMovies from './Components/ReadMovies'
+import Layout from './Main_Layout/Layout'
+
+function App(props) {
+
+ // const[movieList,setMovieList]=useState(props.MovieList)
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    {/* {
+    movieList.map(movie =>
+      <ReadMovies key={movie.id} movie={movie}/>
+    )
+    } */}
+    <Layout movieList ={props.MovieList}/>
+    {/* <ReadMovies movieList ={movieList}/> */}
+    </>
+  )
 }
 
-export default App;
+export default App
