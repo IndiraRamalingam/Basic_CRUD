@@ -4,7 +4,6 @@ import Footer from './Footer'
 import ReadMovies from '../Components/ReadMovies'
 import CreateMovie from '../Components/CreateMovie'
 import EditMovie from '../Components/EditMovie'
-import DeleteMovie from '../Components/DeleteMovie'
 import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
 import { useState,useRef } from 'react'
 
@@ -91,59 +90,31 @@ let addMovie = (event) =>
           <Header />
           <div>
               <Link to="/"></Link>
-              {/* <Link to="/createmovie">CreateMovie</Link> */}
-              {/* <Link to="/editmovie">EditMovie</Link> */}
-              {/* <Link to="/deletemovie">DeleteMovie</Link> */}
             </div>
-
-            <div id="content">                
-
-                  <div className="container ">
-                      <div className="row mt-5">
-                          <div className="  col-lg-4 col-md-5 col-12">
-                              <div className='formcontainer'>
-                                {editing ?
-                                (<div> 
-                                  <EditMovie currentuserdata={currentuserdata} setEditing={setEditing} updateUser={updateUser}/>
-                                  {/* <Routes><Route path='/editmovie/:id' element={<EditMovie currentuserdata={currentuserdata} setEditing={setEditing} updateUser={updateUser}/>}/></Routes> */}
-                                </div>)
-                                :
-                                (<div>
-                                  <CreateMovie addMovie={addMovie} newMovieName={newMovieName} newMovieImage={newMovieImage} newMovieLanguage={newMovieLanguage}
-                                  newMovieDuration={newMovieDuration} newNameContentRef={newNameContentRef} handleNameChange={handleNameChange} 
-                                  handleImageChange={handleImageChange} handleLanguageChange={handleLanguageChange} handleDurationChange={handleDurationChange} />
-                                   {/* <Routes><Route path='/addmovie' element={
-                                  <CreateMovie addMovie={addMovie} newMovieName={newMovieName} newMovieImage={newMovieImage} newMovieLanguage={newMovieLanguage}
-                                  newMovieDuration={newMovieDuration} newNameContentRef={newNameContentRef} handleNameChange={handleNameChange} 
-                                  handleImageChange={handleImageChange} handleLanguageChange={handleLanguageChange} handleDurationChange={handleDurationChange} />
-                              }/></Routes> */}
-                              </div>)   
-                                }
-                              </div>
-                          </div>
-
-                          <div className=" col-lg-8  col-md-7  ">
-                              <div className='listcontainer'>
-                              <Routes><Route path="/" element={<ReadMovies movieList={movies} setEditing={setEditing} editfun={editfun} deletefun={deletefun}/> }/></Routes>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-            </div>
-
             
 
+            <div id="content">                
+                <Routes>
+                  <Route path="/" element={<ReadMovies movieList={movies} setEditing={setEditing} editfun={editfun} deletefun={deletefun}/> }/>
+                  <Route path='/addmovie' element={
+                                                      <CreateMovie addMovie={addMovie} newMovieName={newMovieName} newMovieImage={newMovieImage} newMovieLanguage={newMovieLanguage}
+                                                      newMovieDuration={newMovieDuration} newNameContentRef={newNameContentRef} handleNameChange={handleNameChange} 
+                                                      handleImageChange={handleImageChange} handleLanguageChange={handleLanguageChange} handleDurationChange={handleDurationChange} />
+                                                  }/>
+                  <Route path='/editmovie/:id' element={<EditMovie currentuserdata={currentuserdata} setEditing={setEditing} updateUser={updateUser}/>}/>
+                </Routes>
+            </div>
 
-            <a className="backtotop" href="#page-top">
+            {/* <a className="backtotop" href="#page-top">
               <i className="fas fa-angle-up"></i>
-            </a>
+            </a> */}
             <Footer />
           </div>
         </div>
       </div>
-      </Router>
+    </Router>
     </div>
   )
 }
 
-export default Layout
+ export default Layout

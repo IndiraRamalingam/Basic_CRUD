@@ -13,9 +13,9 @@ function Read({m,editfun,deletefun})
  }
   return(
     <>
-    <div className='col-sm-6' style={{ width: '18rem' }}>
+    <div className='col-sm-6 h-100' style={{ width: '18rem' }}>
              <Card className='m-2 text-center'>
-              <Card.Img variant="top" src={m.img} />
+              <Card.Img variant="top" src={m.img} width="450px" height="300px" />
               <Card.Body>
                 <Card.Title><p style={styles}>{m.id}</p>{m.movieName}</Card.Title>
                 <Card.Text>
@@ -27,18 +27,18 @@ function Read({m,editfun,deletefun})
               <Card.Footer className="text-muted">
               <div className="row">
                 <div className="col-sm-6">
-                {/* <Link to={`/editmovie/${m.id}`}> */}
+                <Link to={`/editmovie/${m.id}`}>
                 <Button variant="warning" onClick={(()=>{
                   editfun(m);
-                  console.log("Clicked ",m)
+                  // console.log("Clicked ",m)
                 })}>Edit</Button>
-                {/* </Link> */}
+                </Link>
                 </div>
                 <div className="col-sm-6">
            
                 <Button variant="danger" onClick={(() => {
                 deletefun(m.id);
-                console.log(m);
+                // console.log(m);
               })}>Delete</Button>
               
                 </div>
