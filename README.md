@@ -1,3 +1,5 @@
+**Front-end Deployed URL** --> https://papaya-maamoul-a7d865.netlify.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
